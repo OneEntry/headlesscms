@@ -1,7 +1,7 @@
 <p align="center">
   <p align="center">
     <a href="https://oneentry.cloud" target="_blank">
-      <img src="https://oneentry.cloud/img/git/oneenrty.png" alt="OneEntry Headless CMS" width="480">
+      <img src="https://oneentry.cloud/img/git/oneenrty_light.png" alt="OneEntry Headless CMS" width="480">
     </a>
   </p>
 </p>
