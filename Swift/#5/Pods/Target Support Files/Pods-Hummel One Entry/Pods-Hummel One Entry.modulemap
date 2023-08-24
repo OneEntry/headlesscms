@@ -1,0 +1,6 @@
+framework module Pods_Hummel_One_Entry {
+  umbrella header "Pods-Hummel One Entry-umbrella.h"
+
+  export *
+  module * { export * }
+}
