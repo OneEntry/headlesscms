@@ -1,0 +1,6 @@
+framework module Pods_One_Entry_Preview {
+  umbrella header "Pods-One Entry Preview-umbrella.h"
+
+  export *
+  module * { export * }
+}
