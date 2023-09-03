@@ -1,0 +1,42 @@
+package com.example.oneentry.view
+
+import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.example.oneentry.item.ProductItem
+import com.example.oneentry.model.ProductModel
+
+@Composable
+fun HomeView(
+    products: ProductModel?
+) {
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Log.e("Products", products.toString())
+
+        if (products != null) {
+
+            Column(
+                verticalArrangement = Arrangement.Center
+            ) {
+
+                for (item in products.items) {
+
+                    ProductItem(item)
+                }
+            }
+        }
+    }
+}
