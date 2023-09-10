@@ -1,0 +1,38 @@
+ private val _currentProduct = MutableStateFlow<ItemsModel?>(null)
+
+    val currentProduct = _currentProduct.asStateFlow()
+
+    init {
+        getProducts()
+    }
+
+    private fun getProducts() {
+
+        viewModelScope.launch {
+
+            try {
+
+                _menus.value = DatabaseProvider.getMenu("categories")
+
+                _menus.value?.let {
+
+                    _pageUrl.value = it.pages.first().pageUrl
+                }
+
+            } catch (error: Exception) {
+
+                Log.e("Menu Error", error.toString())
+            }
+        }
+    }
+
+    fun getCurrentProduct(id: Int) {
+
+        viewModelScope.launch {
+
+            _currentProduct.update {
+
+                DatabaseProvider.getProduct(id)
+            }
+        }
+    }

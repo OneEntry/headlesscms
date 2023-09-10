@@ -1,0 +1,45 @@
+class SearchViewModel: ViewModel() {
+
+    private val _result = MutableStateFlow<List<SearchModel>>(listOf())
+
+    private val _searchText = MutableStateFlow("")
+    val searchText = _searchText.asStateFlow()
+
+    private val _isSearching = MutableStateFlow(false)
+    val isSearching = _isSearching.asStateFlow()
+
+    @OptIn(FlowPreview::class)
+    val result = searchText
+        .debounce(1000L)
+        .onEach { _isSearching.update { true } }
+        .combine(_result) { text, result ->
+
+            if (text.isBlank()) {
+
+                result
+
+            } else {
+
+                try {
+
+                    DatabaseProvider.getSearchResult(text)
+
+                } catch (error: Exception) {
+
+                    Log.e("HomeViewModel", "${error.message}")
+                    emptyList()
+                }
+            }
+        }
+        .onEach { _isSearching.update { false } }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(15000),
+            _result.value
+        )
+
+    fun onSearchTextChange(text: String) {
+
+        _searchText.value = text
+    }
+}

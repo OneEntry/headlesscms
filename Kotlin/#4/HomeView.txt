@@ -1,0 +1,40 @@
+when (products.loadState.refresh) {
+            
+            is LoadState.Loading -> {
+    
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .padding(top = (height / 2 - 70).dp)
+                        .align(Alignment.CenterHorizontally),
+                    color = orange
+                )
+    
+            }
+
+            is LoadState.Error -> {
+    
+                NoDataItem()
+    
+            }
+
+            else -> {
+    
+                val page = mainViewModel.menus.value?.pages?.first() ?: throw Exception("Page error")
+                val product = products.itemSnapshotList.items.first()
+    
+                Log.e("Products", product.toString())
+    
+                CategoriesItem(page = page, products = product)
+    
+                products.itemSnapshotList.items.forEach {
+    
+                    it.items.forEach { item ->
+    
+                        ProductItemSmall(item) {
+    
+                            navController.navigate(route = Screen.DetailScreen.route + "/${item.id}")
+                        }
+                    }
+                }
+            }
+        }

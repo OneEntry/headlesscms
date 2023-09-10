@@ -1,0 +1,107 @@
+@SuppressLint("StateFlowValueCalledInComposition")
+@Composable
+fun SearchBar(
+    searchViewModel: SearchViewModel,
+    mainViewModel: MainViewModel,
+    navigationController: NavController
+) {
+
+    val searchOn = remember { mutableStateOf(false) }
+    val searchText by searchViewModel.searchText.collectAsState()
+    val resultSearch by searchViewModel.result.collectAsState()
+    val isSearching by searchViewModel.isSearching.collectAsState()
+
+    Column {
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 15.dp)
+                .clip(RoundedCornerShape(20.dp))
+                .border(
+                    BorderStroke(1.dp, greyLight),
+                    RoundedCornerShape(20.dp)
+                )
+        ) {
+
+            Column {
+
+                Box(
+                    modifier = Modifier
+                        .padding(horizontal = 22.dp)
+                        .fillMaxWidth()
+                ) {
+
+                    androidx.compose.animation.AnimatedVisibility(visible = searchOn.value) {
+                        OutlinedTextField(
+                            modifier = Modifier
+                                .padding(start = 40.dp, end = 10.dp)
+                                .fillMaxWidth(),
+                            value = searchText,
+                            onValueChange = searchViewModel::onSearchTextChange,
+                            placeholder = { Text(text = "Search") },
+                            singleLine = true,
+                            colors = TextFieldDefaults.outlinedTextFieldColors(
+                                textColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                                focusedBorderColor = Color.Transparent,
+                                unfocusedBorderColor = Color.Transparent,
+                                backgroundColor = Color.Transparent,
+                                cursorColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                                placeholderColor = MaterialTheme.colorScheme.secondary
+                            ),
+                            shape = RoundedCornerShape(10.dp)
+                        )
+                    }
+
+                    IconButton(
+                        onClick = {
+                            searchOn.value = !searchOn.value
+                        }) {
+                        Icon(
+                            modifier = Modifier.size(24.dp),
+                            painter = painterResource(id = R.drawable.search),
+                            contentDescription = "search button",
+                            tint = MaterialTheme.colorScheme.tertiary
+                        )
+                    }
+                }
+            }
+        }
+
+        AnimatedVisibility(visible = searchOn.value) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.White),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                contentPadding = PaddingValues(top = 24.dp, bottom = 60.dp)
+            ) {
+                if (isSearching) {
+
+                    item {
+
+                        CircularProgressIndicator(
+                            color = orange
+                        )
+                    }
+
+                } else {
+
+                    items(resultSearch) { searchModel ->
+
+                        mainViewModel.getCurrentProduct(searchModel.id)
+
+                        mainViewModel.currentProduct.value?.let { item ->
+
+                            ProductItemPresentation(item = item) {
+
+                                navigationController.navigate(route = Screen.DetailScreen.route + "/${item.id}")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

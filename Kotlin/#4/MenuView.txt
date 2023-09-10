@@ -1,0 +1,65 @@
+@Composable
+fun MenuView(
+    navigationController: NavController,
+    drawerMainState: DrawerState
+) {
+
+    val scope = rememberCoroutineScope()
+
+    Column(
+        modifier = Modifier
+            .width(280.dp)
+            .fillMaxHeight()
+            .background(Color.White)
+    ) {
+
+        Image(
+            modifier = Modifier
+                .size(180.dp)
+                .padding(start = 15.dp),
+            painter = painterResource(id = R.drawable.one_entry_logo),
+            contentDescription = null
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
+
+            menuRoutes.forEach { route ->
+
+                NavigationDrawerItem(
+                    icon = {
+                        Icon(
+                            modifier = Modifier
+                                .size(23.dp),
+                            painter = painterResource(id = getIconForScreen(route)),
+                            contentDescription = null,
+                            tint = Color.Black
+                        )
+                    },
+                    label = {
+                        Text(
+                            modifier = Modifier.padding(horizontal = 15.dp),
+                            text = getLabelForRoute(route),
+                            fontFamily = Lato,
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 15.sp
+                        )
+                    },
+                    selected = navigationController.currentBackStackEntryAsState().value?.destination?.route == route,
+                    colors = NavigationDrawerItemDefaults.colors(
+                        selectedTextColor = orange,
+                        unselectedTextColor = Color.White
+                    ),
+                    onClick = {
+                        navigationController.navigate(route)
+                        scope.launch {
+                            drawerMainState.close()
+                        }
+                    }
+                )
+            }
+        }
+    }
+}

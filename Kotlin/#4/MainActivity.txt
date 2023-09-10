@@ -1,0 +1,103 @@
+setContent {
+
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            val navigationController = rememberNavController()
+            val drawerMainState = rememberDrawerState(initialValue = DrawerValue.Closed)
+            hiltViewModel<MainViewModel>()
+
+            OneentryTheme {
+
+                val scaffoldState = rememberScaffoldState()
+                val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+
+                Scaffold(
+                    modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+                    topBar = {
+                        MediumTopAppBar(
+                            modifier = Modifier
+                                .padding(bottom = 10.dp),
+                            title = {
+
+                                Box(modifier = Modifier.fillMaxWidth()) {
+
+                                    Text(
+                                        modifier = Modifier.padding(start = 20.dp),
+                                        text = getLabelForRoute(navigationController.currentBackStackEntryAsState().value?.destination?.route),
+                                        fontFamily = Lato,
+                                        fontWeight = FontWeight.Medium,
+                                        fontSize = 35.sp,
+                                        color = grey,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis,
+                                        textAlign = TextAlign.Center
+                                    )
+                                }
+                            },
+                            navigationIcon = {
+
+                                if (navigationController.currentBackStackEntryAsState().value?.destination?.route != Screen.HomeScreen.route) {
+
+                                    IconButton(
+                                        modifier = Modifier
+                                            .offset(x = 15.dp)
+                                            .background(
+                                                brush = Brush.linearGradient(
+                                                    colors = listOf(
+                                                        greyButton,
+                                                        greyButton
+                                                    )
+                                                ),
+                                                alpha = 1f,
+                                                shape = RoundedCornerShape(16.dp)
+                                            )
+                                            .size(30.dp),
+                                        onClick = {
+                                            navigationController.popBackStack()
+                                        }
+                                    ) {
+                                        Icon(
+                                            modifier = Modifier
+                                                .padding(5.dp),
+                                            painter = painterResource(id = R.drawable.back_arrow),
+                                            contentDescription = null,
+                                            tint = grey
+                                        )
+                                    }
+                                }
+                            },
+                            scrollBehavior = scrollBehavior,
+                        )
+                    },
+                    scaffoldState = scaffoldState,
+                    backgroundColor = Color.Transparent,
+                    contentColor = Color.Transparent,
+                    drawerBackgroundColor = Color.Transparent,
+                    drawerContentColor = Color.Transparent,
+                    drawerScrimColor = Color.Transparent,
+                    drawerGesturesEnabled = Screen.listScreens.contains(
+                        navigationController.currentBackStackEntryAsState().value?.destination?.route
+                    )
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .padding(it)
+                    ) {
+
+                        ModalDrawer(
+                            drawerState = drawerMainState,
+                            drawerContent = {
+                                MenuView(
+                                    navigationController = navigationController,
+                                    drawerMainState = drawerMainState
+                                )
+                            }
+                        ) {
+
+                            SetupNavigationGraph(
+                                navController = navigationController
+                            )
+                        }
+                    }
+                }
+            }
+        }

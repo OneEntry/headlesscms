@@ -1,0 +1,11 @@
+suspend fun getSearchResult(name: String): List<SearchModel> {
+
+	val response = client.get("$domain/products/quick/search?name=$name&lang=$lang") {
+
+		contentType(ContentType.Application.Json)
+	}
+
+	val type = object : TypeToken<List<SearchModel>>() {}.type
+
+	return gson.fromJson(response.bodyAsText(), type)
+}

@@ -1,0 +1,9 @@
+suspend fun getProduct(productId: Int): ItemsModel {
+
+            val response = client.get("$domain/products/$productId") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            return gson.fromJson(response.bodyAsText(), ItemsModel::class.java)
+        }
