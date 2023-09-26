@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		751073BB2AA1DDB6009B1C31 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751073BA2AA1DDB6009B1C31 /* FilterModel.swift */; };
+		751073BD2AA1DF64009B1C31 /* PriceFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751073BC2AA1DF64009B1C31 /* PriceFilterViewModel.swift */; };
+		751073BF2AA1E01F009B1C31 /* FilterProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751073BE2AA1E01F009B1C31 /* FilterProductView.swift */; };
+		751F59982A72B7030030884B /* Hummel_One_EntryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59972A72B7030030884B /* Hummel_One_EntryApp.swift */; };
+		751F599A2A72B7030030884B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59992A72B7030030884B /* ContentView.swift */; };
+		751F599C2A72B7050030884B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751F599B2A72B7050030884B /* Assets.xcassets */; };
+		751F599F2A72B7050030884B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751F599E2A72B7050030884B /* Preview Assets.xcassets */; };
+		751F59A72A72B7BF0030884B /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59A62A72B7BF0030884B /* NetworkProvider.swift */; };
+		751F59A92A72B9200030884B /* OneEntryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59A82A72B9200030884B /* OneEntryProvider.swift */; };
+		751F59AD2A72BB600030884B /* OneEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59AC2A72BB600030884B /* OneEntryError.swift */; };
+		751F59AF2A72BC6A0030884B /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59AE2A72BC6A0030884B /* MenuModel.swift */; };
+		751F59B12A72BCA10030884B /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59B02A72BCA10030884B /* PageModel.swift */; };
+		751F59B32A72BCE10030884B /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751F59B22A72BCE10030884B /* InfoModel.swift */; };
+		752830842AA0F65C00752EF9 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752830832AA0F65C00752EF9 /* SearchResult.swift */; };
+		752830862AA0F76500752EF9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752830852AA0F76500752EF9 /* SearchViewModel.swift */; };
+		7561C2B62A8A8233000C1399 /* PaginationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7561C2B52A8A8233000C1399 /* PaginationViewModel.swift */; };
+		75922D702A867E7800D4EB22 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75922D6F2A867E7800D4EB22 /* ProductModel.swift */; };
+		759266892A7AC5B200FC351A /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759266882A7AC5B200FC351A /* SideMenuViewModel.swift */; };
+		7592668C2A7AC6AA00FC351A /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7592668B2A7AC6AA00FC351A /* SideMenu.swift */; };
+		75A19FF62A9262B1004EE3DF /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A19FF52A9262B1004EE3DF /* ProductView.swift */; };
+		75A19FF82A92649C004EE3DF /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A19FF72A92649C004EE3DF /* CategoryView.swift */; };
+		75A19FFA2A9268F9004EE3DF /* DetailProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A19FF92A9268F9004EE3DF /* DetailProductView.swift */; };
+		75BD3EE02A82B0DA00B6288B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD3EDF2A82B0DA00B6288B /* MenuViewModel.swift */; };
+		75BD3EE22A82B23900B6288B /* AppLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD3EE12A82B23900B6288B /* AppLoadingViewModel.swift */; };
+		75BD3EE42A82B50100B6288B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD3EE32A82B50100B6288B /* HomeView.swift */; };
+		75DB3AB72A9F5EAF005497B7 /* BlogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DB3AB62A9F5EAF005497B7 /* BlogsView.swift */; };
+		75DB3AB92A9F5F3C005497B7 /* BlogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DB3AB82A9F5F3C005497B7 /* BlogView.swift */; };
+		75FAF7AA2ABDE20C009F0D3F /* ContentLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FAF7A92ABDE20C009F0D3F /* ContentLanguage.swift */; };
+		75FAF7AC2ABDE269009F0D3F /* AttributeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FAF7AB2ABDE269009F0D3F /* AttributeModel.swift */; };
+		75FAF7AE2ABDE38C009F0D3F /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FAF7AD2ABDE38C009F0D3F /* AppViewModel.swift */; };
+		75FAF7B02ABDE5D7009F0D3F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FAF7AF2ABDE5D7009F0D3F /* SettingsView.swift */; };
+		A9ECFE6EBE4B1A64A60E11D6 /* Pods_Hummel_One_Entry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F67B997FF44008E0EAEEEF98 /* Pods_Hummel_One_Entry.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A61C8938307508D5DB9FD2A /* Pods-Hummel One Entry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hummel One Entry.debug.xcconfig"; path = "Target Support Files/Pods-Hummel One Entry/Pods-Hummel One Entry.debug.xcconfig"; sourceTree = "<group>"; };
+		751073BA2AA1DDB6009B1C31 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		751073BC2AA1DF64009B1C31 /* PriceFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFilterViewModel.swift; sourceTree = "<group>"; };
+		751073BE2AA1E01F009B1C31 /* FilterProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProductView.swift; sourceTree = "<group>"; };
+		751F59942A72B7030030884B /* Hummel One Entry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hummel One Entry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		751F59972A72B7030030884B /* Hummel_One_EntryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hummel_One_EntryApp.swift; sourceTree = "<group>"; };
+		751F59992A72B7030030884B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		751F599B2A72B7050030884B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		751F599E2A72B7050030884B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		751F59A62A72B7BF0030884B /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		751F59A82A72B9200030884B /* OneEntryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneEntryProvider.swift; sourceTree = "<group>"; };
+		751F59AC2A72BB600030884B /* OneEntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneEntryError.swift; sourceTree = "<group>"; };
+		751F59AE2A72BC6A0030884B /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		751F59B02A72BCA10030884B /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
+		751F59B22A72BCE10030884B /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		752830832AA0F65C00752EF9 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		752830852AA0F76500752EF9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		7561C2B52A8A8233000C1399 /* PaginationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationViewModel.swift; sourceTree = "<group>"; };
+		75922D6F2A867E7800D4EB22 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		759266882A7AC5B200FC351A /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		7592668B2A7AC6AA00FC351A /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		75A19FF52A9262B1004EE3DF /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		75A19FF72A92649C004EE3DF /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		75A19FF92A9268F9004EE3DF /* DetailProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductView.swift; sourceTree = "<group>"; };
+		75BD3EDF2A82B0DA00B6288B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		75BD3EE12A82B23900B6288B /* AppLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLoadingViewModel.swift; sourceTree = "<group>"; };
+		75BD3EE32A82B50100B6288B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		75DB3AB62A9F5EAF005497B7 /* BlogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsView.swift; sourceTree = "<group>"; };
+		75DB3AB82A9F5F3C005497B7 /* BlogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogView.swift; sourceTree = "<group>"; };
+		75FAF7A92ABDE20C009F0D3F /* ContentLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLanguage.swift; sourceTree = "<group>"; };
+		75FAF7AB2ABDE269009F0D3F /* AttributeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeModel.swift; sourceTree = "<group>"; };
+		75FAF7AD2ABDE38C009F0D3F /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		75FAF7AF2ABDE5D7009F0D3F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E1238753C35825320D0EFAC2 /* Pods-Hummel One Entry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hummel One Entry.release.xcconfig"; path = "Target Support Files/Pods-Hummel One Entry/Pods-Hummel One Entry.release.xcconfig"; sourceTree = "<group>"; };
+		F67B997FF44008E0EAEEEF98 /* Pods_Hummel_One_Entry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hummel_One_Entry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		751F59912A72B7030030884B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9ECFE6EBE4B1A64A60E11D6 /* Pods_Hummel_One_Entry.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		751F598B2A72B7030030884B = {
+			isa = PBXGroup;
+			children = (
+				751F59962A72B7030030884B /* Hummel One Entry */,
+				751F59952A72B7030030884B /* Products */,
+				AC8671AC45BA1694F8EFF5A9 /* Pods */,
+				B2B497D5824CD7D2715716F6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		751F59952A72B7030030884B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				751F59942A72B7030030884B /* Hummel One Entry.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		751F59962A72B7030030884B /* Hummel One Entry */ = {
+			isa = PBXGroup;
+			children = (
+				75FAF7A82ABDE1FC009F0D3F /* Protocol */,
+				751F59A52A72B7A20030884B /* Provider */,
+				759266872A7AC59D00FC351A /* ViewModel */,
+				751F59AA2A72BB3D0030884B /* Model */,
+				7592668A2A7AC69100FC351A /* View */,
+				751F59972A72B7030030884B /* Hummel_One_EntryApp.swift */,
+				751F599B2A72B7050030884B /* Assets.xcassets */,
+				751F599D2A72B7050030884B /* Preview Content */,
+			);
+			path = "Hummel One Entry";
+			sourceTree = "<group>";
+		};
+		751F599D2A72B7050030884B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				751F599E2A72B7050030884B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		751F59A52A72B7A20030884B /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				751F59A62A72B7BF0030884B /* NetworkProvider.swift */,
+				751F59A82A72B9200030884B /* OneEntryProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		751F59AA2A72BB3D0030884B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				751F59AB2A72BB480030884B /* OneEntry */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		751F59AB2A72BB480030884B /* OneEntry */ = {
+			isa = PBXGroup;
+			children = (
+				751F59AC2A72BB600030884B /* OneEntryError.swift */,
+				751F59AE2A72BC6A0030884B /* MenuModel.swift */,
+				751F59B02A72BCA10030884B /* PageModel.swift */,
+				751F59B22A72BCE10030884B /* InfoModel.swift */,
+				75922D6F2A867E7800D4EB22 /* ProductModel.swift */,
+				752830832AA0F65C00752EF9 /* SearchResult.swift */,
+				751073BA2AA1DDB6009B1C31 /* FilterModel.swift */,
+				75FAF7AB2ABDE269009F0D3F /* AttributeModel.swift */,
+			);
+			path = OneEntry;
+			sourceTree = "<group>";
+		};
+		759266872A7AC59D00FC351A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				759266882A7AC5B200FC351A /* SideMenuViewModel.swift */,
+				75BD3EDF2A82B0DA00B6288B /* MenuViewModel.swift */,
+				75BD3EE12A82B23900B6288B /* AppLoadingViewModel.swift */,
+				7561C2B52A8A8233000C1399 /* PaginationViewModel.swift */,
+				752830852AA0F76500752EF9 /* SearchViewModel.swift */,
+				751073BC2AA1DF64009B1C31 /* PriceFilterViewModel.swift */,
+				75FAF7AD2ABDE38C009F0D3F /* AppViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7592668A2A7AC69100FC351A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				751F59992A72B7030030884B /* ContentView.swift */,
+				7592668B2A7AC6AA00FC351A /* SideMenu.swift */,
+				75BD3EE32A82B50100B6288B /* HomeView.swift */,
+				75A19FF52A9262B1004EE3DF /* ProductView.swift */,
+				75A19FF72A92649C004EE3DF /* CategoryView.swift */,
+				75A19FF92A9268F9004EE3DF /* DetailProductView.swift */,
+				75DB3AB62A9F5EAF005497B7 /* BlogsView.swift */,
+				75DB3AB82A9F5F3C005497B7 /* BlogView.swift */,
+				751073BE2AA1E01F009B1C31 /* FilterProductView.swift */,
+				75FAF7AF2ABDE5D7009F0D3F /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		75FAF7A82ABDE1FC009F0D3F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				75FAF7A92ABDE20C009F0D3F /* ContentLanguage.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AC8671AC45BA1694F8EFF5A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A61C8938307508D5DB9FD2A /* Pods-Hummel One Entry.debug.xcconfig */,
+				E1238753C35825320D0EFAC2 /* Pods-Hummel One Entry.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B2B497D5824CD7D2715716F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F67B997FF44008E0EAEEEF98 /* Pods_Hummel_One_Entry.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		751F59932A72B7030030884B /* Hummel One Entry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 751F59A22A72B7050030884B /* Build configuration list for PBXNativeTarget "Hummel One Entry" */;
+			buildPhases = (
+				1E339B1D977D382D63178041 /* [CP] Check Pods Manifest.lock */,
+				751F59902A72B7030030884B /* Sources */,
+				751F59912A72B7030030884B /* Frameworks */,
+				751F59922A72B7030030884B /* Resources */,
+				697361E3C5B2522640E8F7B9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hummel One Entry";
+			productName = "Hummel One Entry";
+			productReference = 751F59942A72B7030030884B /* Hummel One Entry.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		751F598C2A72B7030030884B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					751F59932A72B7030030884B = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 751F598F2A72B7030030884B /* Build configuration list for PBXProject "Hummel One Entry" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 751F598B2A72B7030030884B;
+			productRefGroup = 751F59952A72B7030030884B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				751F59932A72B7030030884B /* Hummel One Entry */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		751F59922A72B7030030884B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				751F599F2A72B7050030884B /* Preview Assets.xcassets in Resources */,
+				751F599C2A72B7050030884B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E339B1D977D382D63178041 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hummel One Entry-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		697361E3C5B2522640E8F7B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hummel One Entry/Pods-Hummel One Entry-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hummel One Entry/Pods-Hummel One Entry-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hummel One Entry/Pods-Hummel One Entry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		751F59902A72B7030030884B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75FAF7AC2ABDE269009F0D3F /* AttributeModel.swift in Sources */,
+				752830862AA0F76500752EF9 /* SearchViewModel.swift in Sources */,
+				75FAF7AE2ABDE38C009F0D3F /* AppViewModel.swift in Sources */,
+				75FAF7AA2ABDE20C009F0D3F /* ContentLanguage.swift in Sources */,
+				751F59A92A72B9200030884B /* OneEntryProvider.swift in Sources */,
+				751073BB2AA1DDB6009B1C31 /* FilterModel.swift in Sources */,
+				752830842AA0F65C00752EF9 /* SearchResult.swift in Sources */,
+				75A19FF82A92649C004EE3DF /* CategoryView.swift in Sources */,
+				751F59B12A72BCA10030884B /* PageModel.swift in Sources */,
+				75BD3EE42A82B50100B6288B /* HomeView.swift in Sources */,
+				751F599A2A72B7030030884B /* ContentView.swift in Sources */,
+				751073BF2AA1E01F009B1C31 /* FilterProductView.swift in Sources */,
+				75DB3AB72A9F5EAF005497B7 /* BlogsView.swift in Sources */,
+				751F59AF2A72BC6A0030884B /* MenuModel.swift in Sources */,
+				751073BD2AA1DF64009B1C31 /* PriceFilterViewModel.swift in Sources */,
+				75922D702A867E7800D4EB22 /* ProductModel.swift in Sources */,
+				759266892A7AC5B200FC351A /* SideMenuViewModel.swift in Sources */,
+				75BD3EE02A82B0DA00B6288B /* MenuViewModel.swift in Sources */,
+				75FAF7B02ABDE5D7009F0D3F /* SettingsView.swift in Sources */,
+				75A19FF62A9262B1004EE3DF /* ProductView.swift in Sources */,
+				751F59982A72B7030030884B /* Hummel_One_EntryApp.swift in Sources */,
+				75DB3AB92A9F5F3C005497B7 /* BlogView.swift in Sources */,
+				75BD3EE22A82B23900B6288B /* AppLoadingViewModel.swift in Sources */,
+				751F59AD2A72BB600030884B /* OneEntryError.swift in Sources */,
+				7592668C2A7AC6AA00FC351A /* SideMenu.swift in Sources */,
+				751F59A72A72B7BF0030884B /* NetworkProvider.swift in Sources */,
+				75A19FFA2A9268F9004EE3DF /* DetailProductView.swift in Sources */,
+				7561C2B62A8A8233000C1399 /* PaginationViewModel.swift in Sources */,
+				751F59B32A72BCE10030884B /* InfoModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		751F59A02A72B7050030884B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		751F59A12A72B7050030884B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		751F59A32A72B7050030884B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A61C8938307508D5DB9FD2A /* Pods-Hummel One Entry.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hummel One Entry/Preview Content\"";
+				DEVELOPMENT_TEAM = H4S5B9F55T;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hummel.Hummel-One-Entry";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		751F59A42A72B7050030884B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1238753C35825320D0EFAC2 /* Pods-Hummel One Entry.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hummel One Entry/Preview Content\"";
+				DEVELOPMENT_TEAM = H4S5B9F55T;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hummel.Hummel-One-Entry";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		751F598F2A72B7030030884B /* Build configuration list for PBXProject "Hummel One Entry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				751F59A02A72B7050030884B /* Debug */,
+				751F59A12A72B7050030884B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		751F59A22A72B7050030884B /* Build configuration list for PBXNativeTarget "Hummel One Entry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				751F59A32A72B7050030884B /* Debug */,
+				751F59A42A72B7050030884B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 751F598C2A72B7030030884B /* Project object */;
+}
