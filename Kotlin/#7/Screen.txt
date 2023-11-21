@@ -1,0 +1,18 @@
+package com.example.oneentry
+
+sealed class Screen(val route: String, val topBarName: String) {
+
+    object HomeScreen: Screen(route = "home_screen", topBarName = "Home")
+
+    object DetailsScreen: Screen(route = "details_screen", topBarName = "Details")
+
+    object SettingsScreen: Screen(route = "settings_screen", topBarName = "Settings")
+
+    companion object {
+        val listScreens = listOf(
+            HomeScreen.route,
+            DetailsScreen.route,
+            SettingsScreen.route
+        )
+    }
+}

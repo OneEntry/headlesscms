@@ -1,0 +1,116 @@
+package com.example.oneentry.viewModel
+
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import com.example.oneentry.model.ItemsModel
+import com.example.oneentry.model.LocalesModel
+import com.example.oneentry.model.MenuModel
+import com.example.oneentry.model.ProductModel
+import com.example.oneentry.network.DatabaseProvider
+import com.example.oneentry.network.ProductsPagingSource
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+
+class MainViewModel : ViewModel() {
+
+    private val _menus = MutableStateFlow<MenuModel?>(null)
+
+    private val _locales = MutableStateFlow<List<LocalesModel>?>(null)
+    val locales = _locales.asStateFlow()
+
+    private val _lang = MutableStateFlow("en_US")
+    val lang = _lang.asStateFlow()
+
+    private val _pageUrl = MutableStateFlow("heroes")
+    val pageUrl = _pageUrl.asStateFlow()
+
+    private val _pageId = MutableStateFlow(1)
+    val pageId = _pageId.asStateFlow()
+
+    var products = Pager(PagingConfig(1)) {
+        ProductsPagingSource(this, lang)
+    }.flow.cachedIn(viewModelScope)
+
+    private val _currentProduct = MutableStateFlow<ItemsModel?>(null)
+    val currentProduct = _currentProduct.asStateFlow()
+
+    private val _relatedProducts = MutableStateFlow<ProductModel?>(null)
+    val relatedProducts = _relatedProducts.asStateFlow()
+
+    init {
+        getProducts()
+        getLocalesInfo()
+    }
+
+    private fun getProducts() {
+
+        viewModelScope.launch {
+
+            try {
+
+                _menus.value = DatabaseProvider.getMenu("categories")
+
+                Log.e("Menu", _menus.value.toString())
+                _menus.value?.let {
+
+                    _pageUrl.value = it.pages.first().pageUrl
+                    _pageId.value = it.pages.first().id
+                }
+
+            } catch (error: Exception) {
+
+                Log.e("Menu Error", error.toString())
+            }
+        }
+    }
+
+    fun getRelatedProducts(productId: Int) {
+
+        viewModelScope.launch {
+
+            try {
+
+                _relatedProducts.value = DatabaseProvider.getRelatedProducts(productId)
+
+            } catch (error: Exception) {
+
+                Log.e("Related error", error.toString())
+            }
+        }
+    }
+
+    fun getCurrentProduct(id: Int) {
+
+        viewModelScope.launch {
+
+            _currentProduct.update {
+
+                DatabaseProvider.getProduct(id)
+            }
+        }
+    }
+
+    private fun getLocalesInfo() {
+        viewModelScope.launch {
+            try {
+                _locales.value = DatabaseProvider.getLocalesInfo()
+            } catch (error: Exception) {
+                Log.e("Get locales error", error.toString())
+            }
+        }
+    }
+
+    fun updateCurrentLocale(langCode: String) {
+        viewModelScope.launch {
+            _lang.emit(langCode)
+            Log.e("Update lang", _lang.value)
+        }
+    }
+}
+

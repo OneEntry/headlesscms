@@ -1,0 +1,180 @@
+package com.example.oneentry.view
+
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.DisplayMetrics
+import android.util.Log
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.paging.LoadState
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.oneentry.Screen
+import com.example.oneentry.item.NoDataItem
+import com.example.oneentry.item.ProductItemMedium
+import com.example.oneentry.item.SearchBar
+import com.example.oneentry.network.ProductsPagingSource
+import com.example.oneentry.ui.theme.Lato
+import com.example.oneentry.ui.theme.grey
+import com.example.oneentry.ui.theme.greyButton
+import com.example.oneentry.ui.theme.orange
+import com.example.oneentry.viewModel.MainViewModel
+import com.example.oneentry.viewModel.SearchViewModel
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+
+@OptIn(ExperimentalMaterialApi::class)
+@SuppressLint("CoroutineCreationDuringComposition")
+@Composable
+fun HomeView(
+    navController: NavController,
+    mainViewModel: MainViewModel,
+    searchViewModel: SearchViewModel,
+) {
+
+    var productsFlow = mainViewModel.products
+    val scaffoldState = rememberScaffoldState()
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+
+            SearchBar(
+                searchViewModel = searchViewModel,
+                mainViewModel = mainViewModel,
+                navigationController = navController
+            )
+        }
+    ) {
+
+        Column(modifier = Modifier.padding(it)) {
+
+            val isLoading = remember { mutableStateOf(false) }
+            val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = isLoading.value)
+
+            SwipeRefresh(
+                state = swipeRefreshState,
+                onRefresh = {
+
+                    isLoading.value = true
+
+                    productsFlow = Pager(PagingConfig(1)) {
+                        ProductsPagingSource(mainViewModel, mainViewModel.lang)
+                    }.flow.cachedIn(CoroutineScope(Dispatchers.Main))
+
+                    isLoading.value = false
+                },
+                indicator = { state, refreshTrigger ->
+
+                    SwipeRefreshIndicator(
+                        state = state,
+                        refreshTriggerDistance = refreshTrigger,
+                        backgroundColor = greyButton,
+                        contentColor = grey
+                    )
+                }
+            ) {
+
+                val products = productsFlow.collectAsLazyPagingItems()
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 15.dp)
+                        .padding(top = 20.dp),
+                    verticalArrangement = Arrangement.spacedBy(30.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+
+                    val context = LocalContext.current
+                    val height = getScreenHeight(context = context)
+
+                    Log.e("Products", products.itemSnapshotList.items.toString())
+
+                    when (products.loadState.refresh) {
+
+                        is LoadState.Loading -> {
+
+                            CircularProgressIndicator(
+                                modifier = Modifier
+                                    .padding(top = (height / 2 - 70).dp)
+                                    .align(Alignment.CenterHorizontally),
+                                color = orange
+                            )
+                        }
+
+                        is LoadState.Error -> {
+
+                            NoDataItem()
+                        }
+
+                        else -> {
+
+                            Text(
+                                modifier = Modifier
+                                    .align(Alignment.Start)
+                                    .padding(horizontal = 20.dp)
+                                    .clickable(
+                                        onClick = {
+                                            navController.navigate(route = Screen.FilterScreen.route)
+                                        }
+                                    ),
+                                text = "Filter products",
+                                color = orange,
+                                fontFamily = Lato,
+                                fontWeight = FontWeight.W500,
+                                fontSize = 20.sp
+                            )
+
+                            products.itemSnapshotList.items.forEach {
+
+                                it.items.forEach { item ->
+
+                                    ProductItemMedium(item, mainViewModel) {
+
+                                        navController.navigate(route = Screen.DetailScreen.route + "/${item.id}")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+fun getScreenHeight(context: Context): Int {
+
+    val displayMetrics: DisplayMetrics = context.resources.displayMetrics
+    val screenHeightInPx = displayMetrics.heightPixels
+    val density = displayMetrics.density
+
+    return (screenHeightInPx / density).toInt()
+}

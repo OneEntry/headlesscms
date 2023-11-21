@@ -1,0 +1,353 @@
+package com.example.oneentry.view
+
+import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Divider
+import androidx.compose.material.LocalTextStyle
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.oneentry.Screen
+import com.example.oneentry.item.ProductItemMedium
+import com.example.oneentry.model.FilterModel
+import com.example.oneentry.network.DatabaseProvider
+import com.example.oneentry.ui.theme.Lato
+import com.example.oneentry.ui.theme.grey
+import com.example.oneentry.ui.theme.greyProduct
+import com.example.oneentry.ui.theme.orange
+import com.example.oneentry.viewModel.FilterViewModel
+import com.example.oneentry.viewModel.MainViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+@Composable
+fun FilterView(
+    mainViewModel: MainViewModel,
+    navController: NavController,
+    filterViewModel: FilterViewModel
+) {
+
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 15.dp)
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.Start
+    ) {
+
+        val filterProducts by filterViewModel.filterProducts.collectAsState()
+
+        val attribute by filterViewModel.attributeMarker.collectAsState()
+        val attributesTitles = listOf("grade", "image", "price", "title", "kind")
+
+        val condition by filterViewModel.conditionMarker.collectAsState()
+        val conditionTitles = listOf("contains", "does not contain", "equal to", "not equal to", "more", "less", "contains any value", "does not contain a value")
+
+        var value by remember { mutableStateOf("") }
+        val interactionSource = remember { MutableInteractionSource() }
+        var buttonActive by remember { mutableStateOf(true) }
+        val context = LocalContext.current
+
+        AttributeDropdownMenu(
+            titles = attributesTitles,
+            filterViewModel = filterViewModel
+        )
+
+        ConditionDropdownMenu(
+            titles = conditionTitles,
+            filterViewModel = filterViewModel
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.padding(10.dp),
+            value = value,
+            onValueChange = { value = it },
+            textStyle = LocalTextStyle.current.copy(
+                fontSize = 14.sp,
+                color = Color.Black.copy(0.6f),
+                fontWeight = FontWeight.Normal
+            ),
+            interactionSource = interactionSource,
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                backgroundColor = Color.Transparent,
+                cursorColor = Color.Black.copy(0.6f),
+                textColor = Color.Black.copy(0.6f),
+                focusedBorderColor = grey,
+                unfocusedBorderColor = grey
+            ),
+            label = {
+                Text(
+                    text = "Value",
+                    color = Color.Black.copy(0.6f),
+                    fontSize = 18.sp,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.W500
+                )
+            },
+            shape = RoundedCornerShape(10.dp),
+            maxLines = 10
+        )
+
+        OutlinedButton(
+            modifier = Modifier.padding(10.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.White,
+                disabledBackgroundColor = Color.White
+            ),
+            border = BorderStroke(1.dp, grey),
+            shape = RoundedCornerShape(10.dp),
+            enabled = buttonActive,
+            onClick = {
+
+                buttonActive = false
+
+                CoroutineScope(Dispatchers.IO).launch {
+
+                    if (attribute != "" && condition != "" && value != "") {
+
+                        val body = FilterModel(
+                            attributeMarker = attribute,
+                            conditionMarker = condition,
+                            conditionValue = value,
+                            pageId = mainViewModel.pageId.value
+                        )
+                        val products = DatabaseProvider.filterProducts(body = listOf(body))
+                        filterViewModel.updateFilterProducts(products)
+
+                    } else {
+
+                        CoroutineScope(Dispatchers.Main).launch {
+
+                            Toast.makeText(context, "Fill in all the fields", Toast.LENGTH_SHORT).show()
+                            buttonActive = true
+                        }
+                    }
+                }
+            },
+            contentPadding = PaddingValues(0.dp)
+        ) {
+            Text(
+                modifier = Modifier.padding(horizontal = 10.dp),
+                text = "Отправить",
+                fontSize = 15.sp,
+                fontFamily = Lato,
+                fontWeight = FontWeight.Normal,
+                color = Color.Black.copy(0.6f)
+            )
+        }
+
+        Divider(
+            modifier = Modifier.padding(vertical = 10.dp),
+            thickness = 2.dp
+        )
+
+        Column(
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+
+            filterProducts?.items?.forEach { item ->
+
+                ProductItemMedium(item, mainViewModel) {
+
+                    navController.navigate(route = Screen.DetailScreen.route + "/${item.id}")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun AttributeDropdownMenu(
+    titles: List<String>,
+    filterViewModel: FilterViewModel
+) {
+
+    var expanded by remember { mutableStateOf(false) }
+    var titleAttribute by remember { mutableStateOf("") }
+
+    Row(
+        modifier = Modifier
+            .padding(10.dp)
+            .border(BorderStroke(1.dp, grey), RoundedCornerShape(10.dp))
+            .padding(5.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        Row {
+
+            Column {
+
+                Text(
+                    text = "Attribute for filtering",
+                    color = Color.Black.copy(0.6f),
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = titleAttribute,
+                    color = orange,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 18.sp
+                )
+            }
+
+            IconButton(
+                onClick = { expanded = true },
+                modifier = Modifier.defaultMinSize(minWidth = 1.dp, minHeight = 1.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowDropDown,
+                    contentDescription = "Show menu",
+                    tint = grey
+                )
+            }
+        }
+
+        DropdownMenu(
+            modifier = Modifier
+                .background(color = greyProduct),
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+
+            titles.forEach { title ->
+
+                Text(
+                    modifier = Modifier
+                        .padding(5.dp)
+                        .clickable(
+                            onClick = {
+
+                                titleAttribute = title
+                                filterViewModel.updateAttributeValue(title)
+                            }
+                        ),
+                    text = title,
+                    fontSize = 18.sp,
+                    color = Color.Black.copy(0.86f)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun ConditionDropdownMenu(
+    titles: List<String>,
+    filterViewModel: FilterViewModel
+) {
+
+    var expanded by remember { mutableStateOf(false) }
+    var titleCondition by remember { mutableStateOf("") }
+
+    Row(
+        modifier = Modifier
+            .padding(10.dp)
+            .border(BorderStroke(1.dp, grey), RoundedCornerShape(10.dp))
+            .padding(5.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        Row {
+
+            Column {
+
+                Text(
+                    text = "Condition",
+                    color = Color.Black.copy(0.6f),
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = titleCondition,
+                    color = orange,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 18.sp
+                )
+            }
+
+            IconButton(
+                onClick = { expanded = true },
+                modifier = Modifier.defaultMinSize(minWidth = 1.dp, minHeight = 1.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowDropDown,
+                    contentDescription = "Show menu",
+                    tint = grey
+                )
+            }
+        }
+
+        DropdownMenu(
+            modifier = Modifier
+                .background(color = greyProduct),
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+
+            titles.forEach { title ->
+
+                Text(
+                    modifier = Modifier
+                        .padding(5.dp)
+                        .clickable(
+                            onClick = {
+
+                                titleCondition = title
+                                val condition = filterViewModel.getCodeForCondition(title)
+                                filterViewModel.updateConditionValue(condition)
+                            }
+                        ),
+                    text = title,
+                    fontSize = 18.sp,
+                    color = Color.Black.copy(0.86f)
+                )
+            }
+        }
+    }
+}

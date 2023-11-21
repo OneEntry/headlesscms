@@ -1,0 +1,15 @@
+package com.example.oneentry.model
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class FilterModel(
+    val attributeMarker: String,
+    val conditionMarker: String,
+    val conditionValue: String,
+    val pageId: Int
+)
+
+enum class ConditionMarker {
+    `in`, nin, eq, neq, mth, lth, exs, nexs
+}

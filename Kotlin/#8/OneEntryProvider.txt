@@ -1,0 +1,112 @@
+package com.example.oneentry.network
+
+import android.util.Log
+import com.example.oneentry.model.FilterModel
+import com.example.oneentry.model.ItemsModel
+import com.example.oneentry.model.LocalesModel
+import com.example.oneentry.model.MenuModel
+import com.example.oneentry.model.ProductModel
+import com.example.oneentry.model.SearchModel
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.get
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.client.statement.bodyAsText
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
+import io.ktor.serialization.gson.gson
+
+class OneEntryProvider {
+
+    companion object {
+
+        private val client = HttpClient(CIO) {
+            install(ContentNegotiation) {
+                gson()
+            }
+        }
+        private const val domain = "https://testproject.oneentry.cloud/api/content"
+        private val gson = GsonBuilder().create()
+
+        suspend fun getMenu(marker: String): MenuModel {
+
+            val response = client.get("$domain/menus/marker/$marker") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            return gson.fromJson(response.bodyAsText(), MenuModel::class.java)
+        }
+
+        suspend fun getProducts(pageUrl: String, langCode: String, limit: Int, offset: Int): ProductModel {
+
+            val response = client.get("$domain/products/page/url/$pageUrl?langCode=$langCode&limit=$limit&offset=$offset") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            Log.e("DB Lang", langCode)
+
+            return gson.fromJson(response.bodyAsText(), ProductModel::class.java)
+        }
+
+        suspend fun getLocalesInfo(): List<LocalesModel> {
+
+            val response = client.get("$domain/locales/active/all") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            val type = object : TypeToken<List<LocalesModel>>() {}.type
+
+            return gson.fromJson(response.bodyAsText(), type)
+        }
+
+        suspend fun getProduct(productId: Int): ItemsModel {
+
+            val response = client.get("$domain/products/$productId") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            return gson.fromJson(response.bodyAsText(), ItemsModel::class.java)
+        }
+
+        suspend fun getSearchResult(name: String, lang: String): List<SearchModel> {
+
+            val response = client.get("$domain/products/quick/search?name=$name&lang=$lang") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            val type = object : TypeToken<List<SearchModel>>() {}.type
+
+            return gson.fromJson(response.bodyAsText(), type)
+        }
+
+        suspend fun getRelatedProducts(productId: Int): ProductModel {
+
+            val response = client.get("$domain/products/$productId/related?limit=30&offset=0") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            return gson.fromJson(response.bodyAsText(), ProductModel::class.java)
+        }
+
+        suspend fun filterProducts(body: List<FilterModel>): ProductModel {
+
+            val response = client.post("$domain/products/conditions-filter") {
+
+                contentType(ContentType.Application.Json)
+                setBody(body = body)
+            }
+
+            return gson.fromJson(response.bodyAsText(), ProductModel::class.java)
+        }
+    }
+}

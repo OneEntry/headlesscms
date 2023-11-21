@@ -1,0 +1,9 @@
+suspend fun getStatus(statusId: Int): StatusModel {
+
+            val response = client.get("$domain/product-statuses/$statusId") {
+
+                contentType(ContentType.Application.Json)
+            }
+
+            return gson.fromJson(response.bodyAsText(), StatusModel::class.java)
+        }

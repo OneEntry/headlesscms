@@ -1,0 +1,24 @@
+<template>
+    <div class="not-found-page">
+        <div v-html="content.value"></div>
+    </div>
+</template>
+
+<script setup>
+
+const content = await useGetAttrByName('errorcontent')
+
+</script>
+
+<style lang="scss">
+
+.not-found-page {
+    h2 {
+        font-size: 128px;
+    }
+    p {
+        font-size: 36px;
+    }
+}
+
+</style>

@@ -1,0 +1,68 @@
+@Composable
+fun SettingsView(
+    locales: List<LocalesModel>?,
+    mainViewModel: MainViewModel
+) {
+
+    var expanded by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+
+        Row(
+            modifier = Modifier
+                .padding(horizontal = 15.dp)
+                .fillMaxWidth()
+                .background(
+                    color = greyButton,
+                    shape = RoundedCornerShape(16.dp)
+                )
+                .padding(horizontal = 5.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Text(
+                text = "Content language",
+                color = grey,
+                fontFamily = Lato,
+                fontWeight = FontWeight.W500,
+                fontSize = 20.sp
+            )
+
+            Box {
+                IconButton(onClick = { expanded = true }) {
+                    Icon(
+                        imageVector = Icons.Default.MoreVert,
+                        contentDescription = "Show menu",
+                        tint = grey
+                    )
+                }
+                DropdownMenu(
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false }
+                ) {
+                    locales?.forEach { locale ->
+                        Text(
+                            modifier = Modifier
+                                .padding(5.dp)
+                                .clickable(
+                                    onClick = {
+
+                                        mainViewModel.updateCurrentLocale(locale.code)
+                                    }
+                                ),
+                            text = locale.name,
+                            fontSize = 18.sp,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}

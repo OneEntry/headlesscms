@@ -1,0 +1,6 @@
+package com.example.oneentry.model
+
+data class LocalesModel(
+    val code: String,
+    val name: String
+)

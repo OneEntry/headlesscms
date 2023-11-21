@@ -1,0 +1,183 @@
+@Composable
+private fun Bottom(
+    item: ItemsModel,
+    items:  Map<String, AttributeModel>?,
+    modifier: Modifier,
+    mainViewModel: MainViewModel,
+    navController: NavController,
+    orderViewModel: OrderViewModel
+) {
+
+    var sliderPosition: Float by remember { mutableFloatStateOf(0f) }
+    var buttonActive by remember { mutableStateOf(true) }
+    val context = LocalContext.current
+
+    Column(
+        modifier = modifier
+            .background(Color.White)
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
+
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
+                .padding(horizontal = 20.dp)
+                .padding(start = 5.dp),
+            text = items?.get("title")?.value?.asString.toString(),
+            color = Color.Black,
+            fontFamily = Lato,
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Slider(
+                modifier = Modifier.fillMaxWidth(0.8f),
+                value = sliderPosition,
+                onValueChange = { sliderPosition = it.roundToInt().toFloat() },
+                valueRange = 0f..3f,
+                onValueChangeFinished = {
+
+                },
+                colors = SliderDefaults.colors(
+                    thumbColor = orange,
+                    activeTrackColor = orange,
+                    inactiveTrackColor = greyTabs
+                )
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(0.8f),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                Text(
+                    text = "Small",
+                    color = greyLight,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 11.sp
+                )
+
+                Text(
+                    text = "Medium",
+                    color = greyLight,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 11.sp
+                )
+
+                Text(
+                    text = "Large",
+                    color = greyLight,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 11.sp
+                )
+
+                Text(
+                    text = "Xtra Large",
+                    color = greyLight,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 11.sp
+                )
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp)
+                    .padding(horizontal = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                Text(
+                    text = "Price: ${items?.get("price")?.value?.asInt.toString()} $",
+                    color = Color.Black,
+                    fontFamily = Lato,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 21.sp
+                )
+            }
+        }
+
+
+        mainViewModel.getRelatedProducts(item.id)
+        val productRelated by mainViewModel.relatedProducts.collectAsState()
+
+        productRelated?.let {
+
+            Text(
+                modifier = Modifier.padding(horizontal = 20.dp),
+                text = "Related products: ",
+                color = grey,
+                fontSize = 20.sp,
+                fontFamily = Lato,
+                fontWeight = FontWeight.Bold
+            )
+
+            Row {
+
+                it.items.forEach { item ->
+
+                    ProductItemSmall(
+                        item = item,
+                        mainViewModel = mainViewModel
+                    ) {
+
+                        navController.navigate(route = Screen.DetailScreen.route + "/${item.id}")
+                    }
+                }
+            }
+        }
+
+        val status by orderViewModel.status.collectAsState()
+        Log.e("Status", status.toString())
+
+        OutlinedButton(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
+                .padding(horizontal = 15.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = orange
+            ),
+            shape = RoundedCornerShape(20.dp),
+            enabled = buttonActive,
+            onClick = {
+
+                buttonActive = false
+
+                if (status?.identifier == IdentifierStatus.inStock.name) {
+
+                    orderViewModel.listId.add(item.id)
+                    val id = orderViewModel.listId
+                    Log.e("Id", id.toString())
+                    orderViewModel.addProductId(id)
+                }
+
+                else {
+
+                    Toast.makeText(context, "Product out of stock", Toast.LENGTH_SHORT).show()
+                    buttonActive = true
+                }
+            }
+        ) {
+            Text(
+                text = "Place order",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.W500,
+                color = Color.White
+            )
+        }
+    }
+}

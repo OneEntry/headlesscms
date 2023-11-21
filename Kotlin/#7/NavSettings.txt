@@ -1,0 +1,30 @@
+package com.example.oneentry
+
+fun getLabelForRoute(route: String?): String {
+
+    when (route) {
+
+        Screen.HomeScreen.route -> return Screen.HomeScreen.topBarName
+        Screen.DetailsScreen.route -> return Screen.DetailsScreen.topBarName
+        Screen.SettingsScreen.route -> return Screen.SettingsScreen.topBarName
+    }
+
+    return Screen.HomeScreen.topBarName
+}
+
+val menuRoutes = listOf(
+    Screen.HomeScreen.route,
+    Screen.DetailsScreen.route,
+    Screen.SettingsScreen.route
+)
+
+fun getIconForRoute(route: String?): Int {
+
+    when (route) {
+
+        Screen.HomeScreen.route -> return R.drawable.home
+        Screen.SettingsScreen.route -> return R.drawable.settings
+    }
+
+    return R.drawable.home
+}
