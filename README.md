@@ -40,10 +40,7 @@
     </a>  
     <a href="https://oneentry.cloud/kk/" target="_blank">
         <img src="https://oneentry.cloud/img/git/flags/kk.svg" width="30" style="padding-right:15px;">
-    </a>  
-    <a href="https://oneentry.cloud/ru/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/ru.svg" width="30" style="padding-right:15px;">
-    </a>  
+    </a>   
     <a href="https://oneentry.cloud/tr/" target="_blank">
         <img src="https://oneentry.cloud/img/git/flags/tr.svg" width="30" style="padding-right:15px;">
     </a>  
