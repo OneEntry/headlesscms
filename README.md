@@ -116,36 +116,4 @@ OneEntry includes comprehensive security features and robust Role-Based Access C
 Built to handle traffic spikes and heavy loads. Grow with confidence!
 <br /><br />
 
-<h2>Modules</h2>
-
-OneEntry is equipped with the following modules:
-
-<li><strong>Content Management</strong> - allows the creation of pages of various types, management of textual and graphical content using a visual editor, as well as a code editor.</li><br />
-
-<li><strong>Access Rights Management</strong> - enables assigning different access rights to various users for particular information, as well as capabilities for adding and editing information.</li><br />
-
-<li><strong>Catalog</strong> - for e-commerce websites, allows adding a product catalog in XLS format, manual product addition, product editing, and much more.</li><br />
-
-<li><strong>Administrators</strong> - allows for the assignment and differentiation of access to information for platform administrators.</li><br />
-
-<li><strong>Menu</strong> - allows the customization of the menu on your platform.</li><br />
-
-<li><strong>Journal</strong> - allows viewing actions that have been carried out on the platform.</li><br />
-
-<li><strong>Attributes</strong> - enables setting up action configurations on the platform.</li><br />
-
-We are actively working to introduce more modules. Here's a sneak peek at what's coming next:
-
--   Forms
--   Blocks
--   Users
--   Orders
--   Statistics
--   Payments
--   Delivery
--   Gallery
--   Warehouse
--   Discounts and Bonuses
--   Localization in different languages worldwide for multilingual projects.
-
 There are many exciting and useful tools in the pipeline, so stay tuned for future updates.
