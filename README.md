@@ -1,7 +1,7 @@
 <p align="center">
   <p align="center">
     <a href="https://oneentry.cloud" target="_blank">
-      <img src="https://oneentry.cloud/img/git/oneenrty_light.png" alt="OneEntry Headless CMS" width="480">
+      <img src="https://oneentry.cloud/assets/img/icons/oneenrty_light.png" alt="OneEntry Headless CMS" width="480">
     </a>
   </p>
 </p>
@@ -9,43 +9,46 @@
 
 <p align="center">
     <a href="https://oneentry.cloud/ar/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/ar.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/ar.svg" width="30" style="padding-right:15px;">
     </a>
     <a href="https://oneentry.cloud/az/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/az.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/az.svg" width="30" style="padding-right:15px;">
     </a>
     <a href="https://oneentry.cloud/de/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/de.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/de.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/en.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/en.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/es/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/es.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/es.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/fr/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/fr.svg" width="30" style="padding-right:15px;">
-    </a>  
-    <a href="https://oneentry.cloud/he/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/he.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/fr.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/hy/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/hy.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/hy.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/it/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/it.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/it.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/ka/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/ka.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/ka.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/kk/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/kk.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/kk.svg" width="30" style="padding-right:15px;">
     </a>   
     <a href="https://oneentry.cloud/tr/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/tr.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/tr.svg" width="30" style="padding-right:15px;">
     </a>  
     <a href="https://oneentry.cloud/uz/" target="_blank">
-        <img src="https://oneentry.cloud/img/git/flags/uz.svg" width="30" style="padding-right:15px;">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/uz.svg" width="30" style="padding-right:15px;">
+    </a>  
+        <a href="https://oneentry.cloud/uk/" target="_blank">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/uk.svg" width="30" style="padding-right:15px;">
+    </a>  
+        <a href="https://oneentry.cloud/pt/" target="_blank">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/pt.svg" width="30" style="padding-right:15px;">
     </a>  
 </p>
 <br /><br />
@@ -69,11 +72,11 @@ We are also looking forward to building a community around OneEntry and we would
 <br /><br />
 
 <p align="center">
-  <img src="https://oneentry.cloud/img/git/pages.png" width="270">
-  <img src="https://oneentry.cloud/img/git/page.png" width="270">
-  <img src="https://oneentry.cloud/img/git/catalog.png" width="270">
-  <img src="https://oneentry.cloud/img/git/product.png" width="270">
-  <img src="https://oneentry.cloud/img/git/attributes.png" width="270">
+  <img src="https://oneentry.cloud/assets/img/icons/pages.png" width="270">
+  <img src="https://oneentry.cloud/assets/img/icons/page.png" width="270">
+  <img src="https://oneentry.cloud/assets/img/icons/catalog.png" width="270">
+  <img src="https://oneentry.cloud/assets/img/icons/product.png" width="270">
+  <img src="https://oneentry.cloud/assets/img/icons/attributes.png" width="270">
 </p>
 <br /><br />
 

@@ -1,9 +1,0 @@
-suspend fun getRelatedProduct(productId: Int): ProductModel {
-
-	val response = client.get("$domain/products/$productId/related?limit=30&offset=0") {
-
-		contentType(ContentType.Application.Json)
-	}
-
-	return gson.fromJson(response.bodyAsText(), ProductModel::class.java)
-}
