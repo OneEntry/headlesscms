@@ -1,7 +1,7 @@
 <p align="center">
   <p align="center">
     <a href="https://oneentry.cloud" target="_blank">
-      <img src="https://oneentry.cloud/assets/img/icons/oneenrty_light.png" alt="OneEntry Headless CMS" width="480">
+      <img src="https://oneentry.b-cdn.net/assets/img/logo.svg" alt="OneEntry Headless CMS" width="480">
     </a>
   </p>
 </p>
@@ -69,15 +69,6 @@ OneEntry currently supports 14 languages, and we are actively working to introdu
 
 We are also looking forward to building a community around OneEntry and we would be thrilled to develop the system together with you.
 
-<br /><br />
-
-<p align="center">
-  <img src="https://oneentry.cloud/assets/img/icons/pages.png" width="270">
-  <img src="https://oneentry.cloud/assets/img/icons/page.png" width="270">
-  <img src="https://oneentry.cloud/assets/img/icons/catalog.png" width="270">
-  <img src="https://oneentry.cloud/assets/img/icons/product.png" width="270">
-  <img src="https://oneentry.cloud/assets/img/icons/attributes.png" width="270">
-</p>
 <br /><br />
 
 <h2>Features</h2>
