@@ -11,12 +11,6 @@
     <a href="https://oneentry.cloud/ar/" target="_blank">
         <img src="https://oneentry.cloud/assets/img/icons/flags/ar.svg" width="30" style="padding-right:15px;">
     </a>
-    <a href="https://oneentry.cloud/az/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/az.svg" width="30" style="padding-right:15px;">
-    </a>
-    <a href="https://oneentry.cloud/de/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/de.svg" width="30" style="padding-right:15px;">
-    </a>  
     <a href="https://oneentry.cloud/" target="_blank">
         <img src="https://oneentry.cloud/assets/img/icons/flags/en.svg" width="30" style="padding-right:15px;">
     </a>  
@@ -25,37 +19,23 @@
     </a>  
     <a href="https://oneentry.cloud/fr/" target="_blank">
         <img src="https://oneentry.cloud/assets/img/icons/flags/fr.svg" width="30" style="padding-right:15px;">
-    </a>  
-    <a href="https://oneentry.cloud/hy/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/hy.svg" width="30" style="padding-right:15px;">
-    </a>  
-    <a href="https://oneentry.cloud/it/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/it.svg" width="30" style="padding-right:15px;">
-    </a>  
-    <a href="https://oneentry.cloud/ka/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/ka.svg" width="30" style="padding-right:15px;">
-    </a>  
-    <a href="https://oneentry.cloud/kk/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/kk.svg" width="30" style="padding-right:15px;">
     </a>   
     <a href="https://oneentry.cloud/tr/" target="_blank">
         <img src="https://oneentry.cloud/assets/img/icons/flags/tr.svg" width="30" style="padding-right:15px;">
     </a>  
-    <a href="https://oneentry.cloud/uz/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/uz.svg" width="30" style="padding-right:15px;">
-    </a>  
-        <a href="https://oneentry.cloud/uk/" target="_blank">
-        <img src="https://oneentry.cloud/assets/img/icons/flags/uk.svg" width="30" style="padding-right:15px;">
-    </a>  
         <a href="https://oneentry.cloud/pt/" target="_blank">
         <img src="https://oneentry.cloud/assets/img/icons/flags/pt.svg" width="30" style="padding-right:15px;">
+    </a>  
+        </a>  
+        <a href="https://oneentry.cloud/vi/" target="_blank">
+        <img src="https://oneentry.cloud/assets/img/icons/flags/vi.svg" width="30" style="padding-right:15px;">
     </a>  
 </p>
 <br /><br />
 <p align="center"><a href="http://oneentry.cloud" target="_blank">oneentry.cloud</a></p>
 <br /><br />
 
-Welcome to the official repository of OneEntry, an innovative headless Content Management System (CMS) designed to provide seamless content delivery for any kind of digital product.
+Welcome to the official repository of OneEntry, a ready-to-use backend platform and innovative headless content management system (CMS) designed to enable seamless content delivery for any kind of digital product.
 
 OneEntry is a tool that aims to make content management flexible and developer-friendly while ensuring a secure, scalable, and enjoyable content authoring experience for content managers. The OneEntry interface has been meticulously crafted based on user experience and has been rigorously tested across over 100 different types of businesses to ensure a universally intuitive and effective platform.
 
