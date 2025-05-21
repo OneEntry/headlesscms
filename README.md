@@ -1,7 +1,7 @@
 <p align="center">
   <p align="center">
     <a href="https://oneentry.cloud" target="_blank">
-      <img src="https://oneentry.cloud/img/git/oneenrty_light.png" alt="OneEntry Headless CMS" width="480">
+      <img src="https://oneentry.cloud/img/git/oneenrty_light.png" alt="OneEntry Platform" width="480">
     </a>
   </p>
 </p>
@@ -35,7 +35,7 @@
 <p align="center"><a href="http://oneentry.cloud" target="_blank">oneentry.cloud</a></p>
 <br /><br />
 
-Welcome to the official repository of OneEntry, a ready-to-use backend platform and innovative headless content management system (CMS) designed to enable seamless content delivery for any kind of digital product.
+Welcome to the official repository of OneEntry, a ready-to-use backend platform and innovative headless content management system designed to enable seamless content delivery for any kind of digital product.
 
 OneEntry is a tool that aims to make content management flexible and developer-friendly while ensuring a secure, scalable, and enjoyable content authoring experience for content managers. The OneEntry interface has been meticulously crafted based on user experience and has been rigorously tested across over 100 different types of businesses to ensure a universally intuitive and effective platform.
 
